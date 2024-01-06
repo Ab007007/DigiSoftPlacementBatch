@@ -1,6 +1,6 @@
-package com.digisoft.traning.basics.access.modifiers;
+package com.digisoft.traning.basics.methods;
 
-public class Person {
+public class OverridingDemo {
 
 	public String name;
 	public int age;
@@ -10,7 +10,18 @@ public class Person {
 	public static final int MAX_AGE = 100;
 
 	
+	@Override
+	public String toString() {
+		String str = null;
+		str = "Object Values are : \n Name : "  + this.name + "\n Age : " + this.age
+				 + "\n Height : " + this.height + "\n Weight : " + this.weight 
+				 + "\n Country : " + OverridingDemo.country + "\n MAX AGE : " + OverridingDemo.MAX_AGE 
+				 + "\n ****************************************\n";
+		
+		return str;
 	
+	
+	}
 	void printObjValues() {
 		
 		System.out.println("Name " + this.name);
@@ -24,14 +35,14 @@ public class Person {
 	
 	public static void main(String[] args) 
 	{
-		Person p = new Person();
+		OverridingDemo p = new OverridingDemo();
 		p.name = "Aravinda";
 		p.age = 35;
 		p.height = 5.8;
 		p.weight = 74;
 		
 		
-		Person p2 = new Person();
+		OverridingDemo p2 = new OverridingDemo();
 		p2.name = "Satwik";
 		p2.age = 35;
 		p2.height = 5.8;
@@ -39,7 +50,7 @@ public class Person {
 		
 		System.out.println(p);
 		System.out.println(p2);
-		p.printObjValues();
-		p2.printObjValues();
+	//	p.printObjValues();
+	//	p2.printObjValues();
 	}
 }
