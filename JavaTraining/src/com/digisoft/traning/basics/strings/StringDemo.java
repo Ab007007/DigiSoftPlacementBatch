@@ -15,11 +15,16 @@ public class StringDemo
 		System.out.println("Char at a index 10 : " + str1.charAt(10));
 	
 	
-		String details= "Name=Arvinda;Occuption=IT;Phonenumber=544554;Location=Bangalore";
+		String details= "Name=Aravinda;Occuption=IT;Phonenumber=544554;Location=Bangalore";
 	
 		String[] userdetails = details.split(";");
 		
 		System.out.println(userdetails[0].split("=")[1]);
+		
+		
+		System.out.println("HASHCODE : "  + str1.hashCode());
+		str1 = str1.concat("123");
+		System.out.println("HASHCODE : "  + str1.hashCode());
 		
 		for (int i = 0; i < userdetails.length; i++) 
 		{
@@ -28,12 +33,16 @@ public class StringDemo
 			
 		}
 		
+		System.out.println("Getting String using Substring " + details.substring(details.indexOf("=")+1, details.indexOf(";")));
+		System.out.println("Getting String using Substring " + 
+		details.substring(details.indexOf("=", details.indexOf("Occuption"))+1, details.indexOf("Phonenumber")-1));
+		
+		System.out.println(details.contains("Aravind"));
 		
 		
-		
-		
-		
-		
+		String str = "    ARU    ";
+		System.out.println(str.length());
+		System.out.println(str.trim().length());
 		
 		
 		
