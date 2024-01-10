@@ -39,7 +39,7 @@ public class Person {
 		
 		System.out.println(p);
 		System.out.println(p2);
-		p.printObjValues();
-		p2.printObjValues();
+		//p.printObjValues();
+		//p2.printObjValues();
 	}
 }
