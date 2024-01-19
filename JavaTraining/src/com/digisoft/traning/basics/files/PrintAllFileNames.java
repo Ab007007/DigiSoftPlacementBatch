@@ -11,6 +11,7 @@ public class PrintAllFileNames
 		Scanner sc = new Scanner(System.in);
 		String folder = sc.next();
 		File f = new File(folder);
+		//Recurssive Function
 		if(f.isDirectory())
 		{
 			String[] fileNames = f.list();
