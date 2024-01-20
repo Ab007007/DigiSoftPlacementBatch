@@ -82,7 +82,39 @@ public class Pattern1
 
 	public static void main(String[] args)
 	{
-		
+		binaryTringle();
+	}
+
+
+
+	private static void binaryTringle()
+	{
+		int num = 7;
+
+		for (int i = 1; i <= num; i++)
+		{
+			int tempnum;
+			
+			if(i%2 == 0)
+				tempnum = 0;
+			else
+				tempnum = 1;
+
+			for (int j = 1; j <= i; j++)
+			{
+				System.out.print(tempnum + " ");
+				tempnum++;
+				if(tempnum>1)
+					tempnum = 0;
+			}
+			System.out.println();
+		}
+	}
+
+
+
+	private static void printZ()
+	{
 		int num = 7;
 		for (int i = 1; i <= num; i++)
 		{
