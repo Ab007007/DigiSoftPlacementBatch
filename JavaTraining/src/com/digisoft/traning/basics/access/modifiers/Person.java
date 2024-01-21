@@ -9,7 +9,18 @@ public class Person {
 	public static final String country = "India";
 	public static final int MAX_AGE = 100;
 
-	
+	@Override
+	public String toString()
+	{
+		// TODO Auto-generated method stub
+		System.out.println("Name " + this.name);
+		System.out.println("Age " + this.age);
+		System.out.println("Height " + this.weight);
+		System.out.println("Weight" + this.height);
+		System.out.println("Country " + this.country);
+		System.out.println("Max Age " + this.MAX_AGE);
+		return "";
+	}
 	
 	void printObjValues() {
 		
