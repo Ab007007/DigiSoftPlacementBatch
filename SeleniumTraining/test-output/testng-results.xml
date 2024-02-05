@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="8279" started-at="2024-02-05T12:01:25Z" finished-at="2024-02-05T12:01:33Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="8279" started-at="2024-02-05T12:01:25Z" finished-at="2024-02-05T12:01:33Z">
+      <class name="com.digisoft.selenium.basics.sync.ExplicitWaitDemo">
+        <test-method status="PASS" signature="explicitWaitDemo()[pri:0, instance:com.digisoft.selenium.basics.sync.ExplicitWaitDemo@724af044]" name="explicitWaitDemo" duration-ms="8263" started-at="2024-02-05T12:01:25Z" finished-at="2024-02-05T12:01:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- explicitWaitDemo -->
+      </class> <!-- com.digisoft.selenium.basics.sync.ExplicitWaitDemo -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
