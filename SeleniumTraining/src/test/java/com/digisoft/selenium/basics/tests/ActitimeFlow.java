@@ -14,16 +14,23 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class CreateCustomer {
+public class ActitimeFlow {
 	static WebDriver driver;
 
+	String customerName = null;
+	String projectName = null;
 	@BeforeTest
-	public static void login() throws InterruptedException {
+	public void login() throws InterruptedException {
 //		System.setProperty("webdriver.chrome.driver",
 //				"drivers/chromedriver.exe");
 //		driver = new ChromeDriver();
+		
+		customerName = new Faker().name().firstName(); 
+		projectName = new Faker().company().name();
 		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -38,8 +45,8 @@ public class CreateCustomer {
 		
 	}
 
-	@Test(priority = 2)
-	public static void createcustomer() throws InterruptedException {
+	@Test(priority = 1)
+	public void createcustomer() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(
 				driver.findElement(By.xpath("//a[contains(@href,'tasklist.do')]"))));
@@ -47,7 +54,7 @@ public class CreateCustomer {
 			element.click();
 		driver.findElement(By.xpath("//div[text()='Add New']")).click();
 		driver.findElement(By.xpath("//div[@class='item createNewCustomer ellipsis']")).click();
-		driver.findElement(By.xpath("//input[@class='inputFieldWithPlaceholder']")).sendKeys("rakesh03222");
+		driver.findElement(By.xpath("//input[@class='inputFieldWithPlaceholder']")).sendKeys(customerName);
 		driver.findElement(By.xpath("//span[text()='Create Customer']")).click();
 		System.out.println("Waiting for the visibility of success msg");
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='toasts']//span"))));
@@ -60,14 +67,14 @@ public class CreateCustomer {
 	
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 2)
 	public void createproject() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		
 		driver.findElement(By.xpath("//div[@id='cpTreeBlock']//div[@class='addNewButton']")).click();
 		driver.findElement(By.xpath("//div[@class='item createNewProject ellipsis']")).click();
-		driver.findElement(By.xpath("//input[@class='projectNameField inputFieldWithPlaceholder']"))
-				.sendKeys("automation");
+		driver.findElement(By.xpath("//input[@id='projectPopup_projectNameField']"))
+				.sendKeys(projectName);
 		driver.findElement(By.xpath("//span[text()='Create Project']")).click();
 		driver.findElement(
 				By.xpath("//div[@class='node customerNode notSelected']//div[@class='editButton available']")).click();
@@ -81,7 +88,7 @@ public class CreateCustomer {
 	
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 3)
 	public void deletecustomerproject() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		

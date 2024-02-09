@@ -3,14 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.digisoft.selenium.basics.tests.CreateCustomer">
+      <class name="com.digisoft.selenium.basics.dropdown.SelectDemo">
         <methods>
-          <include name="createproject"/>
-          <include name="cleanup"/>
-          <include name="deletecustomerproject"/>
-          <include name="login"/>
+          <include name="formFill"/>
         </methods>
-      </class> <!-- com.digisoft.selenium.basics.tests.CreateCustomer -->
+      </class> <!-- com.digisoft.selenium.basics.dropdown.SelectDemo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
