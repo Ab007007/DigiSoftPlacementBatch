@@ -15,6 +15,22 @@ public class ActitimeUtils extends WebDriverUtils {
 	
 	}
 	
+	public void launch(String... url) {
+		if(url.length == 0)
+		{
+			System.out.println("Launching Actitime URL : " );
+			driver.get("http://localhost/login.do");
+		}
+		else if (url.length ==1)
+		{
+			System.out.println("Launching URL : " + url[0]);
+			driver.get(url[0]);
+		}
+		else
+			System.out.println("Only one URL is supported!!!");
+	
+	}
+	
 	
 	public void logout()
 	{
@@ -33,9 +49,9 @@ public class ActitimeUtils extends WebDriverUtils {
 		type("id", "username", un);
 		type("name", "pwd", pwd);
 		click("id", "loginButton");
-
-		Assert.assertEquals(driver.getTitle(), "actiTIME - Enter Time-Track");
 		pauseExecution(5000);
+		Assert.assertEquals(driver.getTitle(), "actiTIME - Enter Time-Track");
+		
 
 	}
 

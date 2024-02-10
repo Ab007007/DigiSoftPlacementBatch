@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="29486" started-at="2024-02-09T13:22:32Z" finished-at="2024-02-09T13:23:01Z">
+  <suite name="Default suite" duration-ms="21704" started-at="2024-02-10T12:35:08Z" finished-at="2024-02-10T12:35:30Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="29486" started-at="2024-02-09T13:22:32Z" finished-at="2024-02-09T13:23:01Z">
-      <class name="com.digisoft.selenium.basics.dropdown.MultiDropDownDemo">
-        <test-method status="PASS" signature="multiDropDownDemo()[pri:0, instance:com.digisoft.selenium.basics.dropdown.MultiDropDownDemo@57baeedf]" name="multiDropDownDemo" duration-ms="29447" started-at="2024-02-09T13:22:32Z" finished-at="2024-02-09T13:23:01Z">
+    <test name="Default test" duration-ms="21704" started-at="2024-02-10T12:35:08Z" finished-at="2024-02-10T12:35:30Z">
+      <class name="com.digisoft.selenium.basics.actions.DragAndDropDemo">
+        <test-method status="PASS" signature="dragAndDrop()[pri:0, instance:com.digisoft.selenium.basics.actions.DragAndDropDemo@604ed9f0]" name="dragAndDrop" duration-ms="21663" started-at="2024-02-10T12:35:08Z" finished-at="2024-02-10T12:35:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- multiDropDownDemo -->
-      </class> <!-- com.digisoft.selenium.basics.dropdown.MultiDropDownDemo -->
+        </test-method> <!-- dragAndDrop -->
+      </class> <!-- com.digisoft.selenium.basics.actions.DragAndDropDemo -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

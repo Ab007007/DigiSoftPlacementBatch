@@ -1,25 +1,13 @@
 package com.digisoft.selenium.basics.tests;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.digisoft.selenium.basics.utils.ActitimeUtils;
 import com.github.javafaker.Faker;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ActiTimeFlowUsingReusableFunctions extends ActitimeUtils {
 
@@ -41,7 +29,7 @@ public class ActiTimeFlowUsingReusableFunctions extends ActitimeUtils {
 	}
 
 	@Test(priority = 1)
-	public void createcustomer() throws InterruptedException {
+	public void createcustomer() {
 		goToModule("tasks");
 		clickOnAddNewButton();
 		createCustomerWithDetails(customerName);
@@ -49,14 +37,29 @@ public class ActiTimeFlowUsingReusableFunctions extends ActitimeUtils {
 
 	
 	@Test(priority = 2)
-	public void createproject() throws InterruptedException {
+	public void createproject() {
 		goToModule("tasks");
 		clickOnAddNewButton();
 		createProjectWithDetails(customerName, projectName);
-	
-	
 	}
-
+	
+	@Test(priority = 3)
+	public void deleteCustomer() {
+		goToModule("tasks");
+		type("xpath", "//div[@id='cpTreeBlock']//input[contains(@placeholder, 'name')]", customerName);
+		
+		Actions act = new Actions(driver);
+		act.moveToElement(getElement("xpath", "//div[@class='itemsContainer']//span[text()='"+customerName+"']")).perform();
+		pauseExecution(2000);
+		click("xpath", "//div[@class='itemsContainer']//span[text()='"+customerName+"']/parent::div/following-sibling::div");
+		pauseExecution(2000);
+		click("xpath","//div[@class='customerNamePlaceHolder']/following-sibling::div");
+		
+		click("xpath","//div[contains(@class,'edit_customer_sliding')]//div[@class='deleteButton']");
+		click("id", "customerPanel_deleteConfirm_submitTitle");
+		waitForSuccessMsgToComplete();
+	}
+	
 	@AfterMethod
 	public void cleanup()
 	{
