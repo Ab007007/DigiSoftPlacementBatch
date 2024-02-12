@@ -51,7 +51,7 @@ public class WebDriverUtils {
 		System.out.println("--- Creating a Chrome Driver Object ---");
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		wait = new WebDriverWait(driver, 30);
 
@@ -168,7 +168,9 @@ public class WebDriverUtils {
 	}
 	public String getText(String identifier, String value)
 	{
-		return getElement(identifier, value).getText();
+		String text = getElement(identifier, value).getText();
+		System.out.println("Returning Text : " +  text);
+		return text;
 	}
 	
 	public List<WebElement> getElements(String identifier, String value)
@@ -271,5 +273,11 @@ public class WebDriverUtils {
 		};
 
 		wait.until(fun);
+	}
+	
+	
+	public void closeDriver()
+	{
+		driver.close();
 	}
 }

@@ -3,16 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.digisoft.selenium.basics.tests.ActiTimeFlowUsingReusableFunctions">
+      <class name="com.digisoft.selenium.basics.switchto.PopUpDemo">
         <methods>
-          <include name="createcustomer"/>
           <include name="preSetup"/>
-          <include name="deleteCustomer"/>
-          <include name="setup"/>
-          <include name="cleanup"/>
-          <include name="createproject"/>
+          <include name="handleCustomAlert"/>
+          <include name="handleJSAlert"/>
+          <include name="postExecution"/>
         </methods>
-      </class> <!-- com.digisoft.selenium.basics.tests.ActiTimeFlowUsingReusableFunctions -->
+      </class> <!-- com.digisoft.selenium.basics.switchto.PopUpDemo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
