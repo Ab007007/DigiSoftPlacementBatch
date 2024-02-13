@@ -21,7 +21,7 @@ import com.google.common.base.Function;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class WebDriverUtils {
+public class WebDriverUtils extends GlobalVariables {
 	
 	public WebDriver driver = null;
 	public WebDriverWait wait = null;
@@ -42,6 +42,8 @@ public class WebDriverUtils {
 		{
 			System.out.println("No process found" );
 		}
+		
+		new ConifgReader().configReader();
 	}
 	
 	
@@ -53,7 +55,7 @@ public class WebDriverUtils {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		wait = new WebDriverWait(driver, 30);
+		wait = new WebDriverWait(driver, Integer.valueOf(timeout));
 
 		return driver;
 	}
@@ -95,9 +97,9 @@ public class WebDriverUtils {
 			System.out.println("Please check the driver type, OR contact framework developers");
 			break;
 		}
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		wait = new WebDriverWait(driver, 30);
+		wait = new WebDriverWait(driver, Integer.valueOf(timeout));
 
 		return driver;
 

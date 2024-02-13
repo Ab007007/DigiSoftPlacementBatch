@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="9126" started-at="2024-02-13T11:30:57Z" finished-at="2024-02-13T11:31:06Z">
+  <suite name="Default suite" duration-ms="44058" started-at="2024-02-13T12:22:25Z" finished-at="2024-02-13T12:23:09Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="9126" started-at="2024-02-13T11:30:57Z" finished-at="2024-02-13T11:31:06Z">
-      <class name="com.digisoft.selenium.basics.popup.FileUploadPopUp">
-        <test-method status="PASS" signature="fileUpload()[pri:0, instance:com.digisoft.selenium.basics.popup.FileUploadPopUp@343f4d3d]" name="fileUpload" duration-ms="9054" started-at="2024-02-13T11:30:57Z" finished-at="2024-02-13T11:31:06Z">
+    <test name="Default test" duration-ms="44058" started-at="2024-02-13T12:22:25Z" finished-at="2024-02-13T12:23:09Z">
+      <class name="com.digisoft.selenium.basics.tests.ATUsingExternalData">
+        <test-method status="PASS" signature="preSetup()[pri:0, instance:com.digisoft.selenium.basics.tests.ATUsingExternalData@f6c48ac]" name="preSetup" is-config="true" duration-ms="14071" started-at="2024-02-13T12:22:25Z" finished-at="2024-02-13T12:22:39Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- fileUpload -->
-      </class> <!-- com.digisoft.selenium.basics.popup.FileUploadPopUp -->
+        </test-method> <!-- preSetup -->
+        <test-method status="PASS" signature="createcustomer()[pri:1, instance:com.digisoft.selenium.basics.tests.ATUsingExternalData@f6c48ac]" name="createcustomer" duration-ms="7899" started-at="2024-02-13T12:22:39Z" finished-at="2024-02-13T12:22:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createcustomer -->
+        <test-method status="PASS" signature="createproject()[pri:2, instance:com.digisoft.selenium.basics.tests.ATUsingExternalData@f6c48ac]" name="createproject" duration-ms="7751" started-at="2024-02-13T12:22:47Z" finished-at="2024-02-13T12:22:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createproject -->
+        <test-method status="PASS" signature="deleteCustomer()[pri:3, instance:com.digisoft.selenium.basics.tests.ATUsingExternalData@f6c48ac]" name="deleteCustomer" duration-ms="11104" started-at="2024-02-13T12:22:55Z" finished-at="2024-02-13T12:23:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteCustomer -->
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:com.digisoft.selenium.basics.tests.ATUsingExternalData@f6c48ac]" name="cleanup" is-config="true" duration-ms="3207" started-at="2024-02-13T12:23:06Z" finished-at="2024-02-13T12:23:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanup -->
+      </class> <!-- com.digisoft.selenium.basics.tests.ATUsingExternalData -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

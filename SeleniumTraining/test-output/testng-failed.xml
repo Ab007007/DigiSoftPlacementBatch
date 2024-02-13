@@ -3,11 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.digisoft.selenium.basics.popup.FileUploadPopUp">
+      <class name="com.digisoft.selenium.basics.tests.ATUsingExternalData">
         <methods>
-          <include name="fileUpload"/>
+          <include name="createproject"/>
+          <include name="cleanup"/>
+          <include name="deleteCustomer"/>
+          <include name="setup"/>
+          <include name="createcustomer"/>
+          <include name="preSetup"/>
         </methods>
-      </class> <!-- com.digisoft.selenium.basics.popup.FileUploadPopUp -->
+      </class> <!-- com.digisoft.selenium.basics.tests.ATUsingExternalData -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
