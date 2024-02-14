@@ -1,7 +1,15 @@
 package com.digisoft.selenium.basics.utils;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -21,10 +29,15 @@ import com.google.common.base.Function;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class WebDriverUtils extends GlobalVariables {
+public class WebDriverUtils extends GlobalVariables implements ConifgReader
+{
 	
 	public WebDriver driver = null;
 	public WebDriverWait wait = null;
+	List data = null;
+	File f = null;
+	FileReader fr;
+	BufferedReader br = null;
 
 	
 	
@@ -43,7 +56,7 @@ public class WebDriverUtils extends GlobalVariables {
 			System.out.println("No process found" );
 		}
 		
-		new ConifgReader().configReader();
+		new WebDriverUtils().configReader();
 	}
 	
 	
@@ -282,4 +295,66 @@ public class WebDriverUtils extends GlobalVariables {
 	{
 		driver.close();
 	}
+	
+	
+	
+	public List<String> readActitimeTestData() {
+
+		try {
+			data = new ArrayList<String>();
+			f = new File("data/ActiTimeTestData.txt");
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
+			String line = null;
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+				data.add(line);
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			br.close();
+			fr.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return data;
+	}
+
+	public void configReader() {
+		System.out.println("Setting Global Variables for the Project!!!");
+		Properties props = new Properties();
+		try {
+			props.load(new FileInputStream(new File("data/config.properties")));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		GlobalVariables.url = props.getProperty("actitimeURL");
+		GlobalVariables.userName = props.getProperty("username");
+		GlobalVariables.password = props.getProperty("password");
+		GlobalVariables.timeout = props.getProperty("timeout");
+		GlobalVariables.browser = props.getProperty("browser");
+
+		System.out.println("URL : " + GlobalVariables.url);
+		System.out.println("UserName : " + GlobalVariables.userName);
+		System.out.println("Password : " + GlobalVariables.password);
+		System.out.println("TimeOut : " + GlobalVariables.timeout);
+		System.out.println("Browser : " + GlobalVariables.browser);
+
+	}
+
 }

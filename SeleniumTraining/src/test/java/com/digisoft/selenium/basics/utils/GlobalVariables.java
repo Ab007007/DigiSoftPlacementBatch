@@ -1,6 +1,6 @@
 package com.digisoft.selenium.basics.utils;
 
-public class GlobalVariables {
+public class GlobalVariables extends ExcelReader {
 
 	public static String userName ;
 	public static String password ;
