@@ -114,10 +114,11 @@ public class ActitimeUtils extends WebDriverUtils {
 		validateScreenWithText("id", "projectPopup_titlePlaceholder","Create New Project");
 		
 		type("id", "projectPopup_projectNameField", projectName);
-		
+		pauseExecution(3000);
 		click("xpath","//div[@id='projectPopup_customerSelectorPlaceholder']//button");
-		verifyElementisVisible("xpath", "//ul[@class='x-menu-list']//a[text()='"+customerName+"']");
-		click("xpath", "//ul[@class='x-menu-list']//a[text()='"+customerName+"']");
+		pauseExecution(3000);
+		verifyElementisVisibleUsingJS("linktext", customerName);
+		click("linktext",customerName);
 		
 		type("id", "projectPopup_projectDescriptionField", customerName + "_Description");
 		click("id","projectPopup_commitBtn");

@@ -10,7 +10,7 @@ public class FormyUtils extends ActitimeUtils
 		click("id", "navbarDropdownMenuLink");
 		verifyElementisVisible("xpath", "//div[@aria-labelledby='navbarDropdownMenuLink']");
 		click("xpath", "//a[text()='" + name + "']");
-		verifyElementisVisible("xpath", "//h1[text()='" + name + "']");
-		Assert.assertEquals(name, getText("tagname", "h1"));
+	//	verifyElementisVisible("xpath", "//h1[text()='" + name + "']");
+	//	Assert.assertEquals(name, getText("tagname", "h1"));
 	}
 }

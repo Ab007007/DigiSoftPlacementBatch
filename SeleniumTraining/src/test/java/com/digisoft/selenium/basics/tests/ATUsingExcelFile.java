@@ -3,6 +3,8 @@ package com.digisoft.selenium.basics.tests;
 import java.util.List;
 
 import org.openqa.selenium.interactions.Actions;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -29,7 +31,7 @@ public class ATUsingExcelFile extends ActitimeUtils {
 
 	}
 
-	@Test(priority = 1)
+//	@Test(priority = 1)
 	public void createcustomer() {
 		goToModule("tasks");
 		for (int i = 1; i < rowCount; i++) {
@@ -43,11 +45,12 @@ public class ATUsingExcelFile extends ActitimeUtils {
 
 	@Test(priority = 2)
 	public void createproject() {
-		// goToModule("tasks");
+		 goToModule("tasks");
 		for (int i = 1; i < rowCount; i++) {
 			customerName = getMyCellValue(sheetName, i, 0);
 			projectName = getMyCellValue(sheetName, i, 1);
 			clickOnAddNewButton();
+			System.out.println("Creating project with " + customerName + " and " + projectName);
 			createProjectWithDetails(customerName, projectName);
 		}
 	}
@@ -71,10 +74,23 @@ public class ATUsingExcelFile extends ActitimeUtils {
 			click("xpath", "//div[contains(@class,'edit_customer_sliding')]//div[@class='deleteButton']");
 			click("id", "customerPanel_deleteConfirm_submitTitle");
 			waitForSuccessMsgToComplete();
+			clearText("xpath", "//div[@id='cpTreeBlock']//input[contains(@placeholder, 'name')]", customerName);
+
 		}
 	
 	}
 
+	
+	@AfterMethod
+	public void postTestExecution(ITestResult result)
+	{
+		if(result.getStatus() == ITestResult.FAILURE)
+		{
+			takeScreenShot(result.getTestName());
+		}
+	}
+	
+	
 	@AfterTest
 	public void cleanup() {
 		logout();

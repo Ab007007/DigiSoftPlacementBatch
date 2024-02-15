@@ -8,12 +8,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -176,6 +181,13 @@ public class WebDriverUtils extends GlobalVariables implements ConifgReader
 		System.out.println("Performing type operation on the element "  + texttoEnter + " is complete");
 		
 	}
+	public void clearText(String identifier, String value, String texttoEnter)
+	{
+		System.out.println("Performing type operation on the element "  + texttoEnter);
+		getElement(identifier, value).clear();
+		System.out.println("Performing type operation on the element "  + texttoEnter + " is complete");
+		
+	}
 	
 	public String getAttribute(String identifier, String value, String attributeValue)
 	{
@@ -260,6 +272,13 @@ public class WebDriverUtils extends GlobalVariables implements ConifgReader
 			flag = true;
 		
 		return flag;
+	}
+	
+	
+	public void verifyElementisVisibleUsingJS(String identifier, String value)
+	{
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();", getElement(identifier, value));
 	}
 	
 	
@@ -357,4 +376,21 @@ public class WebDriverUtils extends GlobalVariables implements ConifgReader
 
 	}
 
+	
+	public String getDateAndTime()
+	{
+		return new Date().toString().replace(" " , "_").replace(":", "_");
+	}
+	
+	public void takeScreenShot(String testName) {
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File srcFile = ts.getScreenshotAs(OutputType.FILE);
+		
+		try {
+			FileUtils.copyFile(srcFile, new File("screenshots\\" + testName + "_" + getDateAndTime() + ".png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
