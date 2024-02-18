@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Default suite">
+ <groups>
+    <run>
+      <include name="production"/>
+    </run>
+  </groups>
+  <test thread-count="5" verbose="2" name="LoginTests">
+    <classes>
+      <class name="com.digisoft.selenium.basic.testng.AssertDemo"/>
+    </classes>
+  </test> <!-- Default test -->
+  
+   <test thread-count="5" verbose="2" name="CreateCustomerTests">
+    <classes>
+      <class name="com.digisoft.selenium.basic.testng.AssertDemo"/>
+    </classes>
+  </test> <!-- Default test -->
+  
+   <test thread-count="5" verbose="2" name="DeleteCustomerTests">
+    <classes>
+      <class name="com.digisoft.selenium.basic.testng.AssertDemo"/>
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->

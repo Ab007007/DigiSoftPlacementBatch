@@ -8,7 +8,7 @@ import com.digisoft.selenium.basics.utils.FormyUtils;
 public class JavaScriptExecutorDemo extends FormyUtils
 {
 
-	//@Test
+	@Test
 	public void scrollPage()
 	{
 		getDriver();
@@ -32,4 +32,18 @@ public class JavaScriptExecutorDemo extends FormyUtils
 		createProjectWithDetails("WE-TestNG-Cus4", "Project-1");
 		
 	}
+	@Test
+	public void performTypeUsingJS()
+	{
+		getDriver();
+		launch("https://formy-project.herokuapp.com/");
+		selectComponent("Enabled and disabled elements");
+		pauseExecution(5000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		//js.executeScript("document.getElementById('disabledInput').value='ABCD';");
+		js.executeScript("document.getElementById('disabledInput').placeholder='ABCD';");
+		
+	}
+	
+	
 }

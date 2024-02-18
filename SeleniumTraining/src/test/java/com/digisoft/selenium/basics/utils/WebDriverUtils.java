@@ -47,20 +47,20 @@ public class WebDriverUtils extends GlobalVariables implements ConifgReader
 	
 	
 	static {
-		System.out.println("--pre check to kill the processes ---");
-		String drivers[] = {"chromedriver", "geckodriver", "edgedriver"};
-		try {
-			for (int i = 0; i < drivers.length; i++) 
-			{
-				System.out.println("checking for the processes : " + drivers[i]);
-				Runtime.getRuntime().exec("taskkill /F /IM " + drivers[i] + ".exe");
-			}
-			
-		}catch(Exception ex)
-		{
-			System.out.println("No process found" );
-		}
-		
+//		System.out.println("--pre check to kill the processes ---");
+//		String drivers[] = {"chromedriver", "geckodriver", "edgedriver"};
+//		try {
+//			for (int i = 0; i < drivers.length; i++) 
+//			{
+//				System.out.println("checking for the processes : " + drivers[i]);
+//				Runtime.getRuntime().exec("taskkill /F /IM " + drivers[i] + ".exe");
+//			}
+//			
+//		}catch(Exception ex)
+//		{
+//			System.out.println("No process found" );
+//		}
+//		
 		new WebDriverUtils().configReader();
 	}
 	
@@ -277,8 +277,12 @@ public class WebDriverUtils extends GlobalVariables implements ConifgReader
 	
 	public void verifyElementisVisibleUsingJS(String identifier, String value)
 	{
+		System.out.println("verifyElementisVisibleUsingJS - Entering");
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView();", getElement(identifier, value));
+		System.out.println("verifyElementisVisibleUsingJS - Exiting");
+		
+	
 	}
 	
 	

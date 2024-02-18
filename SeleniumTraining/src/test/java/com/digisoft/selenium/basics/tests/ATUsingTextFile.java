@@ -27,7 +27,7 @@ public class ATUsingTextFile extends ActitimeUtils {
 
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1 , groups = {"smoke"})
 	public void createcustomer() {
 		goToModule("tasks");
 		for (int i = 1; i < rowCount; i++) {
@@ -39,7 +39,7 @@ public class ATUsingTextFile extends ActitimeUtils {
 
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2 ,groups = {"smoke"})
 	public void createproject() {
 //		 goToModule("tasks");
 		for (int i = 1; i < rowCount; i++) {
@@ -50,7 +50,7 @@ public class ATUsingTextFile extends ActitimeUtils {
 		}
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3 ,groups = {"smoke"})
 	public void deleteCustomer() {
 //		goToModule("tasks");
 		for (int i = 1; i <rowCount ; i++) {
@@ -76,6 +76,6 @@ public class ATUsingTextFile extends ActitimeUtils {
 	@AfterTest
 	public void cleanup() {
 		logout();
-		driver.close();
+		
 	}
 }

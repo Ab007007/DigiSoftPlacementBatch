@@ -35,6 +35,7 @@ public class ActitimeUtils extends WebDriverUtils {
 	public void logout()
 	{
 		click("id", "logoutLink");
+		driver.close();
 	}
 	
 	
@@ -49,7 +50,7 @@ public class ActitimeUtils extends WebDriverUtils {
 		type("id", "username", un);
 		type("name", "pwd", pwd);
 		click("id", "loginButton");
-		pauseExecution(5000);
+		pauseExecution(10000);
 		Assert.assertEquals(driver.getTitle(), "actiTIME - Enter Time-Track");
 		
 

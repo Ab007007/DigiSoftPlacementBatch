@@ -63,6 +63,5 @@ public class ATUsingExternalData extends ActitimeUtils {
 	public void cleanup()
 	{
 		logout();
-		driver.close();
 	}
 }

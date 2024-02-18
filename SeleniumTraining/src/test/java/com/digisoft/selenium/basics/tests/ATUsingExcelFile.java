@@ -80,7 +80,6 @@ public class ATUsingExcelFile extends ActitimeUtils {
 	
 	}
 
-	
 	@AfterMethod
 	public void postTestExecution(ITestResult result)
 	{
@@ -94,6 +93,5 @@ public class ATUsingExcelFile extends ActitimeUtils {
 	@AfterTest
 	public void cleanup() {
 		logout();
-		driver.close();
 	}
 }

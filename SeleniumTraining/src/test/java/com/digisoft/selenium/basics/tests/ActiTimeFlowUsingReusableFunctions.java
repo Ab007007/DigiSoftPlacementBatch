@@ -64,6 +64,5 @@ public class ActiTimeFlowUsingReusableFunctions extends ActitimeUtils {
 	public void cleanup()
 	{
 		logout();
-		driver.close();
 	}
 }

@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]" parallel="methods">
+  <parameter name="password" value="manager"/>
+  <parameter name="browser" value="edge"/>
+  <parameter name="url" value="http://localhost/login.do"/>
+  <parameter name="timeout" value="30"/>
+  <parameter name="username" value="admin"/>
+  <test thread-count="5" name="Actitime test(failed)" parallel="methods">
     <classes>
-      <class name="com.digisoft.selenium.basics.tests.ATUsingTextFile">
+      <class name="com.digisoft.selenium.basics.tests.LoginTest">
         <methods>
-          <include name="preSetup"/>
-          <include name="createproject"/>
-          <include name="cleanup"/>
+          <include name="loginAsAdmin"/>
+          <include name="loginAsUser"/>
         </methods>
-      </class> <!-- com.digisoft.selenium.basics.tests.ATUsingTextFile -->
+      </class> <!-- com.digisoft.selenium.basics.tests.LoginTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
+  </test> <!-- Actitime test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
