@@ -1,5 +1,6 @@
 package com.digisoft.selenium.basics.sync;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -25,7 +26,8 @@ public class ExplicitWaitDemo {
 		driver.get("file:///D:/EclipseWS/html/tiimeout.html");
 		driver.findElement(By.tagName("button")).click();
 		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
 		
 		WebElement element = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("demo"))));
 		

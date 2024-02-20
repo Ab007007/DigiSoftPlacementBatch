@@ -25,7 +25,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -73,7 +72,8 @@ public class WebDriverUtils extends GlobalVariables implements ConifgReader
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		wait = new WebDriverWait(driver, Integer.valueOf(timeout));
+		//wait = new WebDriverWait(driver, Integer.valueOf(timeout));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(Integer.valueOf(timeout)));
 
 		return driver;
 	}
@@ -103,7 +103,7 @@ public class WebDriverUtils extends GlobalVariables implements ConifgReader
 
 		case "opera":
 			WebDriverManager.operadriver().setup();
-			driver = new OperaDriver();
+//			driver = new OperaDriver();
 			break;
 		case "ie":
 			WebDriverManager.iedriver().setup();
@@ -117,7 +117,8 @@ public class WebDriverUtils extends GlobalVariables implements ConifgReader
 		}
 		driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		wait = new WebDriverWait(driver, Integer.valueOf(timeout));
+//		wait = new WebDriverWait(driver, Integer.valueOf(timeout));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(Integer.valueOf(timeout)));
 
 		return driver;
 

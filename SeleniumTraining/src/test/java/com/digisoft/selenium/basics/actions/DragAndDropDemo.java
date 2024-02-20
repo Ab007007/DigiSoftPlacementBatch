@@ -5,7 +5,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import com.digisoft.selenium.basics.utils.ActitimeUtils;
-import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
 
 public class DragAndDropDemo {
 

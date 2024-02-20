@@ -1,5 +1,6 @@
 package com.digisoft.selenium.basics.tests;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -47,7 +48,8 @@ public class ActitimeFlow {
 
 	@Test(priority = 1)
 	public void createcustomer() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+//		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait  wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(
 				driver.findElement(By.xpath("//a[contains(@href,'tasklist.do')]"))));
 		if(element.isDisplayed() && element.isEnabled())
@@ -69,7 +71,8 @@ public class ActitimeFlow {
 
 	@Test(priority = 2)
 	public void createproject() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait  wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		;
 		
 		driver.findElement(By.xpath("//div[@id='cpTreeBlock']//div[@class='addNewButton']")).click();
 		driver.findElement(By.xpath("//div[@class='item createNewProject ellipsis']")).click();
@@ -90,7 +93,8 @@ public class ActitimeFlow {
 
 	@Test(priority = 3)
 	public void deletecustomerproject() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		;
 		
 		driver.findElement(By.xpath("//div[@class='headerBlock']//div[@class='actionButton']")).click();
 		driver.findElement(By.xpath("//div[@class='dropdownContainer actionsMenu']//div[text()='Delete']")).click();

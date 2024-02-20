@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.digisoft.selenium.basics.utils.ActitimeUtils;
-import com.sun.org.apache.bcel.internal.generic.LUSHR;
 
 public class MultipleWindowDemo extends ActitimeUtils
 {

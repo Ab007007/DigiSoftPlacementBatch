@@ -1,5 +1,7 @@
 package com.digisoft.selenium.basics.utils;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -64,7 +66,8 @@ public class ActitimeUtils extends WebDriverUtils {
 	 * 
 	 */
 	public void goToModule(String moduleName) {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+//		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Integer.valueOf(timeout)));
 		switch (moduleName.toLowerCase()) {
 		case "tasks":
 			wait.until(ExpectedConditions.elementToBeClickable(getElement("xpath", "//a[contains(@href,'tasks')]"))).click();
