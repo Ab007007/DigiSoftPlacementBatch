@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import com.aventstack.extentreports.Status;
+
 public class TasksPage extends BasePage 
 {
 
@@ -48,10 +50,20 @@ public class TasksPage extends BasePage
 	
 	public void createNewCustomer(String cn, String cd)
 	{
+		test.log(Status.INFO, "Creating  a Customer ");
+		test.log(Status.INFO, "Clicking on Add New ");
 		clickOnAddNewButton();
+		
+		
+		test.log(Status.INFO, "Clicking on Add New Customer ");
 		clickOnNewCustomerCreateButton();
+		
+		test.log(Status.INFO, "Creating a customer with " +cn + " and " + cd );
 		enterCustomerDetails(cn, cd);
+		
+		test.log(Status.INFO, "Creating  a Customer ");
 		verifySuccessMessage();
+		test.log(Status.PASS, "Customer created successfully");
 		
 		
 	}
@@ -59,6 +71,7 @@ public class TasksPage extends BasePage
 	
 	public TasksPage(WebDriver driver) 
 	{
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	

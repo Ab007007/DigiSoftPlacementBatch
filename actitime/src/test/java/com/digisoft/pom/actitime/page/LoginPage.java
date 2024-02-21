@@ -26,7 +26,7 @@ public class LoginPage extends BasePage {
 		usernameTextBox.sendKeys(un);
 		passwordTextBox.sendKeys(pwd);
 		loginButton.click();
-		new WebDriverUtils().pauseExecution(5000);
+		new WebDriverUtils().pauseExecution(35000);
 		verifyTitle(driver, "actiTIME - Enter Time-Track");
 	}
 	
@@ -41,6 +41,7 @@ public class LoginPage extends BasePage {
 	
 	public LoginPage(WebDriver driver) 
 	{
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 }
