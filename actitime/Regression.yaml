@@ -1,8 +1,0 @@
-name: Default suite
-configFailurePolicy: skip
-tests:
-  - name: Default test
-  verbose: 2
-  classes:
-    - com.digisoft.pom.actitime.test.TestReports
-

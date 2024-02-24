@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+  <test thread-count="5" name="Grid Execution test(failed)">
     <classes>
-      <class name="com.digisoft.pom.actitime.test.CreateCustomer">
+      <class name="com.digisoft.pom.actitime.grid.FireFoxTest">
         <methods>
           <include name="conigureReports"/>
-          <include name="setup"/>
-          <include name="cleanup"/>
+          <include name="formyRegisterTest"/>
           <include name="savingReports"/>
-          <include name="createCustomer"/>
         </methods>
-      </class> <!-- com.digisoft.pom.actitime.test.CreateCustomer -->
+      </class> <!-- com.digisoft.pom.actitime.grid.FireFoxTest -->
+      <class name="com.digisoft.pom.actitime.grid.ChromeTest">
+        <methods>
+          <include name="conigureReports"/>
+          <include name="formyRegisterTest"/>
+          <include name="savingReports"/>
+        </methods>
+      </class> <!-- com.digisoft.pom.actitime.grid.ChromeTest -->
+      <class name="com.digisoft.pom.actitime.grid.EdgeTest">
+        <methods>
+          <include name="conigureReports"/>
+          <include name="formyRegisterTest"/>
+          <include name="savingReports"/>
+        </methods>
+      </class> <!-- com.digisoft.pom.actitime.grid.EdgeTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
+  </test> <!-- Grid Execution test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +22,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
@@ -31,6 +36,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.google.common.base.Function;
 
+import bsh.Capabilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebDriverUtils 
@@ -85,6 +91,33 @@ public class WebDriverUtils
 
 		return driver;
 	}
+	
+	
+	/**
+	 * 
+	 * @param browserName - MicrosoftEdge, chrome, firefox
+	 * @return
+	 */
+	public WebDriver getRemoteDriver(String browserName) {
+		DesiredCapabilities dc = new DesiredCapabilities();
+		dc.setBrowserName(browserName);
+		//dc.setCapability(CapabilityType.BROWSER_NAME, browserName);
+		dc.setCapability(CapabilityType.UNHANDLED_PROMPT_BEHAVIOUR, "accept");
+		
+		try 
+		{
+			driver =  new RemoteWebDriver(new URL("http://localhost:4444"), dc);
+		} 
+		catch (MalformedURLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return driver;
+	}
+	
+	
 	/**
 	 * @author Aravind
 	 * @param type - chrome, edge, ff, opera, ie
@@ -209,12 +242,15 @@ public class WebDriverUtils
 		return new Date().toString().replace(" " , "_").replace(":", "_");
 	}
 	
-	public void takeScreenShot(String testName) {
+	public void takeScreenShot(String testName , ExtentTest test) {
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File srcFile = ts.getScreenshotAs(OutputType.FILE);
 		
 		try {
-			FileUtils.copyFile(srcFile, new File("screenshots\\" + testName + "_" + getDateAndTime() + ".png"));
+			String fileNme = "screenshots\\" + testName+ "_" + getDateAndTime() + ".png";
+			File f = new File(fileNme);
+			FileUtils.copyFile(srcFile, new File(fileNme));
+			test.addScreenCaptureFromPath(f.getAbsolutePath());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

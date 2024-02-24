@@ -1,5 +1,13 @@
 package com.digisoft.pom.actitime.test;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -25,7 +33,7 @@ public class CreateCustomer extends WebDriverUtils {
 		test = reports.createTest("Setup : Pre condition to my Test ");
 		test.log(Status.INFO, "Creating a Driver object " );
 		
-		driver = getDriver("edge");
+		driver = getDriver("ff");
 		test.log(Status.INFO, "Driver Created Successfully " );
 		
 		
@@ -47,10 +55,21 @@ public class CreateCustomer extends WebDriverUtils {
 	}
 	
 	
-	@Test(invocationCount = 3)
+	//@Test(invocationCount = 3)
 	public void createCustomer()
 	{
 		String cn = new Faker().name().firstName().toString();
+		test = reports.createTest("createCustomer ");
+		test.log(Status.INFO, "Creating a new Customer wiht : "  + cn);
+		tasksPage.createNewCustomer(cn , "FirstCustomerDesc");
+		
+	}
+	
+	
+	@Test
+	public void createCustomerWithSameData()
+	{
+		String cn = "Customer";
 		test = reports.createTest("createCustomer ");
 		test.log(Status.INFO, "Creating a new Customer wiht : "  + cn);
 		tasksPage.createNewCustomer(cn , "FirstCustomerDesc");
@@ -63,9 +82,21 @@ public class CreateCustomer extends WebDriverUtils {
 		
 	}
 	
+	
+	@AfterMethod
+	public void checkStatus(ITestResult result)
+	{
+		System.out.println("$$$$$$ AFter MEthod$$$$$$$");
+		if(result.getStatus() == ITestResult.FAILURE || result.getStatus() ==  ITestResult.SKIP)
+		{
+			test.log(Status.FAIL, "Test " + result.getTestName() + " failed!");
+			takeScreenShot(result.getTestName(), test);
+		}
+	}
 	@AfterTest
 	public void cleanup()
 	{
+		reports.flush();
 		homePage.logout();
 		basePage = null;
 		loginPage = null;
