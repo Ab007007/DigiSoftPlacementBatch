@@ -73,12 +73,16 @@ public class WebDriverUtils
 	{
 		reports.flush();
 	}
+	
+	
 	public void launch(String url) {
 		test.log(Status.INFO , "Launching URL : " + url);
 		driver.get(url);
+		test.log(Status.PASS, "Application launched successfully");
 	
 	}
 	
+	@Deprecated
 	public WebDriver getDriver()
 	{
 		test.log(Status.INFO , "--- Creating a Chrome Driver Object ---");

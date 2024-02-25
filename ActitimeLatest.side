@@ -1,0 +1,63 @@
+{
+  "id": "f0e64c5c-ab47-4b64-9d83-9ba0dda4bba1",
+  "version": "2.0",
+  "name": "ActitimeLatest",
+  "url": "http://localhost:8086",
+  "tests": [{
+    "id": "b814e358-0f3d-46dd-b9bd-d6ffe5011d46",
+    "name": "NavigateActitime (1)",
+    "commands": [{
+      "id": "96e500b2-a08c-48ae-9c9d-ecc74022b618",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1",
+      "targets": [],
+      "value": "x"
+    }, {
+      "id": "1fe8b00d-e4aa-4f5c-b4e3-62a37026fc3c",
+      "comment": "",
+      "command": "echo",
+      "target": "${x}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c2cc02fd-deb2-4c6b-895b-9e339fea00b9",
+      "comment": "",
+      "command": "while",
+      "target": "${x} < 10",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f50d8626-12f5-47f2-95db-1241a2b96042",
+      "comment": "",
+      "command": "echo",
+      "target": "Hello ${x}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "342142a2-77bb-4ed5-8c16-9637a79525a3",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${x} + 1",
+      "targets": [],
+      "value": "x"
+    }, {
+      "id": "188f477e-6ddf-41c3-a059-5b4265dec313",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ac86ffc0-1d1e-4697-aa62-f0b40a6d1840",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8086/"],
+  "plugins": []
+}
