@@ -16,7 +16,7 @@ public class SortDemo
 		l.add(29);
 		
 		l.sort((a,b) -> a.compareTo(b));
-//		l.sort((a,b) -> l.compare(a,b));
+		l.sort((a,b) -> a.compare(a,b));
 		l.forEach(item -> System.out.println(item));
 		
 		
