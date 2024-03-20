@@ -1,11 +1,10 @@
 package com.digisoft.selenium.basic.testng;
 
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.digisoft.selenium.basic.testng.data.TestData;
-
-import org.testng.annotations.DataProvider;
 
 public class DataProviderDemo { // extends TestData {
   @Test(dataProvider = "dp")

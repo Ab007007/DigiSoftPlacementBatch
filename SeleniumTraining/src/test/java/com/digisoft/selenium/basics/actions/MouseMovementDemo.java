@@ -1,16 +1,10 @@
 package com.digisoft.selenium.basics.actions;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.annotations.Test;
 
 import com.digisoft.selenium.basics.utils.ActitimeUtils;
-import com.google.common.base.Function;
 
 public class MouseMovementDemo extends ActitimeUtils {
 

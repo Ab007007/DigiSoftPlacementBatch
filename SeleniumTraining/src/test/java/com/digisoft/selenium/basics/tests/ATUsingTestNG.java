@@ -1,7 +1,5 @@
 package com.digisoft.selenium.basics.tests;
 
-import java.util.List;
-
 import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;

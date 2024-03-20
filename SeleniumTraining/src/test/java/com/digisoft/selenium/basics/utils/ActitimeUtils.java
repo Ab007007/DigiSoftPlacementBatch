@@ -2,14 +2,12 @@ package com.digisoft.selenium.basics.utils;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class ActitimeUtils extends WebDriverUtils {
 
-	
 	
 	public void launch(String url) {
 		System.out.println("Launching URL : " + url);
@@ -18,10 +16,12 @@ public class ActitimeUtils extends WebDriverUtils {
 	}
 	
 	public void launch(String... url) {
+//		if(driver==null)
+//			getDriver();
 		if(url.length == 0)
 		{
 			System.out.println("Launching Actitime URL : " );
-			driver.get("http://localhost/login.do");
+			driver.get("http://localhost:8086/login.do");
 		}
 		else if (url.length ==1)
 		{
