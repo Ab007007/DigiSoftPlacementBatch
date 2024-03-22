@@ -17,7 +17,7 @@ import io.cucumber.junit.CucumberOptions;
 //		tags = "@s1 and not @s3",
 //		tags = "@s1 or @s3",
 //		tags = "@s1 and @s3",
-		tags = "@dev",
+		tags = "@production1 and @s123",
 		dryRun = false,
 //		dryRun = true,
 		plugin = {"junit:target/junit/Report.xml",
