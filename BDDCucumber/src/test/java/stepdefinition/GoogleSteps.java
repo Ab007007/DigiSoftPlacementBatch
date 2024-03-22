@@ -1,10 +1,10 @@
 package stepdefinition;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 import org.openqa.selenium.WebElement;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -28,13 +28,13 @@ public class GoogleSteps extends WebDriverUtils {
 		click("name", "btnK");
 	}
 
-	@Then("user Navigate to results page")
+	@Then("user Navigate to result(s) page")
 	public void user_navigate_to_results_page() {
 		int resultsCount = getElements("tagname", "a").size();
 		System.out.println("total results : " + resultsCount);
 	}
 
-	@Then("user print all the hyperlinks")
+	@Then("user print/save all the hyperlinks")
 	public void user_print_all_the_hyperlinks() {
 		List<WebElement> results = getElements("tagname", "h3");
 		
@@ -42,5 +42,38 @@ public class GoogleSteps extends WebDriverUtils {
 
 		driver.quit();
 		}
+
+	
+	@When("user perform search and print the results")
+	public void user_perform_search_and_print_the_results(DataTable dataTable) {
+	  List<String> dataToSearch = dataTable.asList();
+	  
+	  dataToSearch.forEach(ele -> {
+		  type("name", "q", ele);
+		  click("name", "btnK");
+		  List<WebElement> results = getElements("tagname", "h3");
+          results.forEach(e -> 
+          {
+        	  if(e.getText().length()>0)
+        		  System.out.println(e.getText());
+          });
+          driver.get("https://www.google.com/");
+	  });
+	  
+	  
+	  
+	  
+	  
+	}
+	
+	@When("user perform search and print the results as Map")
+	public void user_perform_search_and_print_the_results_as_map(io.cucumber.datatable.DataTable dataTable) {
+	 System.out.println("Team will implement");
+	}
+	
+	@Then("close the browser")
+	public void close_the_browser() {
+		driver.quit();
+	}
 
 }

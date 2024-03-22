@@ -12,10 +12,17 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-		features =  {"features/GoogleSearchWithExamples.feature"},
+		features =  {"features/"},
 		glue = {"stepdefinition"},
-	//	dryRun = false
-		dryRun = true
+//		tags = "@s1 and not @s3",
+//		tags = "@s1 or @s3",
+//		tags = "@s1 and @s3",
+		tags = "@dev",
+		dryRun = false,
+//		dryRun = true,
+		plugin = {"junit:target/junit/Report.xml",
+				   "json:target/json/Report.json",
+				   "html:target/html/Report.html"}
 		
 		)
 

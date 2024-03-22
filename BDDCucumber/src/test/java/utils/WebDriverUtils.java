@@ -38,12 +38,15 @@ public class WebDriverUtils extends GlobalVariables implements ConifgReader
 	
 	public WebDriver driver = null;
 	public WebDriverWait wait = null;
-	List data = null;
+	protected List data = null;
 	File f = null;
 	FileReader fr;
 	BufferedReader br = null;
 
-	
+	public void launch(String url) {
+		System.out.println("Lunching " + url);
+		driver.get(url);
+	}
 	
 	public WebDriver getDriver()
 	{
